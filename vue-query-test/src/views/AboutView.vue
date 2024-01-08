@@ -8,7 +8,8 @@ import { ElMessage } from 'element-plus'
 
 const temp = {
   title: 'Do Laundry',
-  content: 'Do the laundry before 5pm'
+  content: 'Do the laundry before 5pm',
+  permit: false
 }
 
 const column = [
@@ -93,7 +94,7 @@ const handleSelectionChange = (val: Post[]) => {
     <hr style="margin: 20px 0; width: 100%" />
 
     <!-- table -->
-    <el-card style="width: 50%" body-style="padding: 0">
+    <el-card style="width: 100%" body-style="padding: 0">
       <el-table
         :data="data"
         :border="true"

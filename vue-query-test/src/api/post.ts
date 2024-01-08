@@ -4,10 +4,12 @@ export type Post = {
   id: number
   title: string
   content: string
+  permit: boolean
 }
 export type CreatePostRequest = {
   title: string
   content: string
+  permit: boolean
 }
 export type deletePostRequest = number
 

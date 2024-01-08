@@ -9,6 +9,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/create">Create</RouterLink>
       </nav>
     </div>
   </header>

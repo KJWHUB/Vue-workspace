@@ -3,32 +3,20 @@
     {
       "id": 2,
       "title": "json-server",
-      "content": "typicode"
+      "content": "typicode",
+      "permit": false
     },
     {
       "title": "Do Laundry",
       "content": "Do the laundry before 5pm",
+      "permit": false,
       "id": 3
     },
     {
       "title": "Do Laundry",
       "content": "Do the laundry before 5pm",
+      "permit": false,
       "id": 4
-    },
-    {
-      "title": "Do Laundry",
-      "content": "Do the laundry before 5pm",
-      "id": 5
-    },
-    {
-      "title": "Do Laundry",
-      "content": "Do the laundry before 5pm",
-      "id": 6
-    },
-    {
-      "title": "Do Laundry",
-      "content": "Do the laundry before 5pm",
-      "id": 7
     }
   ],
   "comments": [],
