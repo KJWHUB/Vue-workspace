@@ -1,0 +1,11 @@
+$mixBlue: #1e90ff;
+
+.testclass {
+  color: $mixBlue;
+}
+
+// 변수는 export 키워드를 사용하여 외부에서 사용할 수 있도록 설정할 수 있습니다.
+// 안하면 안나옴
+:export {
+  menuText: $mixBlue;
+}

@@ -64,6 +64,9 @@ devDependencies:
   prettier:
     specifier: ^3.0.3
     version: 3.1.1
+  sass:
+    specifier: ^1.69.7
+    version: 1.69.7
   typescript:
     specifier: ~5.3.0
     version: 5.3.3
@@ -75,7 +78,7 @@ devDependencies:
     version: 0.26.0(vue@3.4.5)
   vite:
     specifier: ^5.0.10
-    version: 5.0.10(@types/node@18.19.4)
+    version: 5.0.10(@types/node@18.19.4)(sass@1.69.7)
   vue-tsc:
     specifier: ^1.8.25
     version: 1.8.27(typescript@5.3.3)
@@ -805,7 +808,7 @@ packages:
       vite: ^4.0.0 || ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.0.10(@types/node@18.19.4)
+      vite: 5.0.10(@types/node@18.19.4)(sass@1.69.7)
       vue: 3.4.5(typescript@5.3.3)
     dev: true
 
@@ -1984,6 +1987,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@4.3.4:
+    resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
+    dev: true
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -2762,6 +2769,16 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
 
+  /sass@1.69.7:
+    resolution: {integrity: sha512-rzj2soDeZ8wtE2egyLXgOOHQvaC2iosZrkF6v3EUG+tBwEvhqUCzm0VP3k9gHF9LXbSrRhT5SksoI56Iw8NPnQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+    dev: true
+
   /scule@1.1.1:
     resolution: {integrity: sha512-sHtm/SsIK9BUBI3EFT/Gnp9VoKfY6QLvlkvAE6YK7454IF8FSgJEAnJpVdSC7K5/pjI5NfxhzBLW2JAfYA/shQ==}
     dev: true
@@ -3137,7 +3154,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vite@5.0.10(@types/node@18.19.4):
+  /vite@5.0.10(@types/node@18.19.4)(sass@1.69.7):
     resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3169,6 +3186,7 @@ packages:
       esbuild: 0.19.11
       postcss: 8.4.32
       rollup: 4.9.2
+      sass: 1.69.7
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
