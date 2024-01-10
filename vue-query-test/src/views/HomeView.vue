@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import style from '@/assets/variables.module.scss'
 
+const vFocus = {
+  mounted: (el: HTMLElement) => {
+    console.log('mounted', el)
+
+    el.focus()
+  }
+}
+
 const val = style
 
 console.log('tes::::::::', style)
@@ -9,6 +17,7 @@ console.log('tes::::::::', style)
 <template>
   <main>
     home
+    <input v-focus />
     <div
       v-for="([key, value], i) in Object.entries(val)"
       :key="i"
