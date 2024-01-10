@@ -6,10 +6,14 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
 <template>
   <header>
     <div class="wrapper">
-      <nav>
+      <nav class="custom-nav">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/create">Create</RouterLink>
+        <div class="custom-nav">
+          <RouterLink :to="{ name: 'user' }">User</RouterLink>
+          <RouterLink to="/list/product">Product</RouterLink>
+        </div>
       </nav>
     </div>
   </header>
@@ -18,7 +22,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
   <VueQueryDevtools position="right" buttonPosition="bottom-right" />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
   line-height: 1.5;
 }
@@ -47,5 +51,17 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.custom-nav {
+  background-color: #fff;
+  a {
+    padding: 1rem;
+    color: rgba(#161616, 0.5);
+  }
+}
+
+.testATC {
+  color: ghostwhite;
 }
 </style>
