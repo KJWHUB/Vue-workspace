@@ -22,5 +22,13 @@
   "comments": [],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "test": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "content": "typicode",
+      "permit": false
+    }
+  ]
 }

@@ -9,4 +9,13 @@ const instance = axios.create({
   headers: { 'X-Custom-Header': 'foobar' }
 })
 
+instance.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  (error) => {
+    return Promise.reject(error)
+  }
+)
+
 export default instance
