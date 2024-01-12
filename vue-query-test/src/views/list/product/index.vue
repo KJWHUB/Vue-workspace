@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup lang="ts">
+console.log('product')
+</script>
 
 <template>
   <div>

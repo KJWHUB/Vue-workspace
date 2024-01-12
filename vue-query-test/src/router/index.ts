@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ListLayout from '../layouts/ListLayout.vue'
-improt ProductIndex from '../views/list/product/index.vue'
-improt ProductHelper from '../views/list/product/helper.vue'
+import HomeView from '@/views/HomeView.vue'
+import ListLayout from '@/layouts/ListLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,10 +36,7 @@ const router = createRouter({
         {
           path: 'product',
           name: 'product',
-          component: {
-            default: ProductIndex,
-            helper: ProductHelper
-          }
+          component: () => import('../views/list/product/index.vue')
         }
       ]
     }

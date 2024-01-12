@@ -1,11 +1,11 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
     <h1>list Layout</h1>
     <hr />
     <RouterView />
-    <RouterView name="helper" />
+    <!-- <RouterView name="helper" /> -->
   </div>
 </template>
 
