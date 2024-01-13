@@ -1,23 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav class="custom-nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/create">Create</RouterLink>
-        <div class="custom-nav">
-          <RouterLink :to="{ name: 'user' }">User</RouterLink>
-          <RouterLink to="/list/product">Product</RouterLink>
-        </div>
-      </nav>
-    </div>
-  </header>
-
   <RouterView />
   <VueQueryDevtools position="right" buttonPosition="bottom-right" />
 </template>

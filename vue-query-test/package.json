@@ -8,6 +8,7 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
@@ -19,6 +20,7 @@
     "start-jsondb-delay": "json-server --watch db.json -p 9900 --delay 500"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@tanstack/vue-query": "^5.17.1",
     "@tanstack/vue-query-devtools": "^5.17.1",
     "axios": "^1.6.4",
