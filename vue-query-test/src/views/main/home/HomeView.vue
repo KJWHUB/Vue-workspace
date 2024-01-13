@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import style from '@/assets/variables.module.scss'
 
+import { useTokenStore } from '@/stores/auth/token'
+
+const tokenStore = useTokenStore()
+
+console.log('home AuthToken 1', tokenStore.accessToken)
+
 const vFocus = {
   mounted: (el: HTMLElement) => {
     console.log('mounted', el)

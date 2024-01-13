@@ -5,6 +5,13 @@ import type { FormInstance, FormRules } from 'element-plus'
 
 import { useMutation } from '@tanstack/vue-query'
 import { getLogin } from '@/api/auth/login'
+import { setRefreshToken, removeRefreshToken } from '@/utils/cookie/index'
+
+import { useTokenStore } from '@/stores/auth/token'
+
+const tokenStore = useTokenStore()
+
+console.log('login AuthToken 1', tokenStore.accessToken)
 
 interface FormData {
   id: string
@@ -16,8 +23,16 @@ const loginMutation = useMutation({
   onSuccess: (data) => {
     console.log('로그인에 성공했습니다.')
     console.log('get data :', data)
+    // 리프레쉬토큰 쿠키에 저장
+    setRefreshToken(data.refreshToken)
+    // 액세스토큰 저장
+    tokenStore.accessToken.setToken(data.accessToken)
+    // 저장후 라우터 이동
+
+    console.log('login AuthToken 2', tokenStore.accessToken)
   },
   onError: (error) => {
+    removeRefreshToken()
     console.log('로그인에 실패했습니다.')
     console.log('get error :', error)
   }
@@ -33,16 +48,19 @@ const formRules = reactive<FormRules<FormData>>({
     { min: 3, max: 10, message: '3~10자리의 문자열을 입력하세요', trigger: 'blur' }
   ]
 })
-const formCheck = async (formEl: FormInstance | undefined): Promise<boolean> => {
+const formCheck = async (formEl: FormInstance | undefined) => {
   // ref 연결 검증
   if (!formEl) {
     ElMessage.error('form instance is not ready')
     return false
   }
+
   // 유효성 검사
-  return await formEl.validate((valid, fields) => {
+  await formEl.validate((valid, fields) => {
     console.log('valid', valid, 'fields', fields)
     if (valid) {
+      // 서버에 로그인 요청
+      loginMutation.mutate(formData.id)
       console.log('submit!')
     } else {
       ElMessage.error('유효성 검사에 실패했습니다.')
@@ -52,14 +70,9 @@ const formCheck = async (formEl: FormInstance | undefined): Promise<boolean> => 
   })
 }
 const submit = async () => {
-  // 1. 유효성 검사
-  if (!(await formCheck(formRef.value))) return
+  // 유효성 검사
+  await formCheck(formRef.value)
 
-  // 2. 서버에 로그인 요청
-  loginMutation.mutate(formData.id)
-
-  // 1. 서버에서 토큰을 받아온다.
-  // 2. 토큰을 쿠키에 저장한다.
   console.log('login')
 }
 </script>

@@ -31,13 +31,16 @@
       "permit": false
     }
   ],
-  "login": {
-    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjo0LCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjI0NjU0NjY2LCJleHAiOjE",
-    "refreshToken": "NjI0NjU0NjY2fQ.3",
-    "userInfo": {
+  "user": [
+    {
       "id": 100,
-      "name": "Kim",
-      "role": "ALL"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp7ImlkIjo0LCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjI0NjU0NjY2LCJleHAiOjE",
+      "refreshToken": "NjI0NjU0NjY2fQ.3",
+      "userInfo": {
+        "id": 100,
+        "name": "Kim",
+        "role": "ALL"
+      }
     }
-  }
+  ]
 }
