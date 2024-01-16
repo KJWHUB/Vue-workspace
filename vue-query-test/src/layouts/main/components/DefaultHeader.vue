@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useTokenStore } from '@/stores/auth/token'
 import { Setting } from '@element-plus/icons-vue'
+
+const { logout } = useTokenStore()
 </script>
 
 <template>
@@ -12,9 +15,7 @@ import { Setting } from '@element-plus/icons-vue'
         <el-icon size="24" color="#fff"><Setting /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>View</el-dropdown-item>
-            <el-dropdown-item>Add</el-dropdown-item>
-            <el-dropdown-item>Delete</el-dropdown-item>
+            <el-dropdown-item @click="logout">Logout</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

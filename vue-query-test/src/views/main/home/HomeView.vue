@@ -2,10 +2,12 @@
 import style from '@/assets/variables.module.scss'
 
 import { useTokenStore } from '@/stores/auth/token'
+import { computed } from 'vue'
 
 const tokenStore = useTokenStore()
+const a = computed(() => tokenStore.accessToken)
 
-console.log('home AuthToken 1', tokenStore.accessToken)
+console.log('home AuthToken 1', a.value)
 
 const vFocus = {
   mounted: (el: HTMLElement) => {

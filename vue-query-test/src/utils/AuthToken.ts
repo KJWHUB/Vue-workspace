@@ -1,8 +1,8 @@
 export class AuthToken {
-  private token: string
+  private token: string | null
 
   constructor() {
-    this.token = ''
+    this.token = null
   }
 
   getToken() {

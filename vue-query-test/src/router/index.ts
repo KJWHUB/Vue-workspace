@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/main/home/HomeView.vue'
-import ListLayout from '@/layouts/ListLayout.vue'
-import AuthLayout from '@/layouts/auth/AuthLayout.vue'
-import MainLayout from '@/layouts/main/MainLayout.vue'
+
+// module
+import mainRoutes from './module/main'
+import authRoutes from './module/auth'
+import { useTokenStore } from '@/stores/auth/token'
 
 const basicRoutes = [
   {
@@ -11,69 +12,33 @@ const basicRoutes = [
     component: () => import('@/views/error/404/NotFound.vue')
   }
 ]
-const mainRoutes = [
-  {
-    path: 'home',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: 'about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('@/views/main/about/AboutView.vue')
-  },
-  {
-    path: 'post',
-    name: 'postCreate',
-    component: () => import('@/views/main/post/PostView.vue')
-  },
-  {
-    path: 'list',
-    name: 'list',
-    component: ListLayout,
-    children: [
-      {
-        path: 'user',
-        name: 'user',
-        component: () => import('@/views/main/list/user/UserView.vue')
-      },
-      {
-        path: 'product',
-        name: 'product',
-        component: () => import('@/views/main/list/product/ProductView.vue')
-      }
-    ]
-  }
-]
-const authRoutes = {
-  path: '/auth',
-  name: 'auth',
-  component: AuthLayout,
-  children: [
-    {
-      path: 'login',
-      name: 'login',
-      component: () => import('@/views/auth/login/LoginView.vue')
-    }
-  ]
-}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'root',
-      redirect: { name: 'home' },
-      component: MainLayout,
-      children: mainRoutes
-    },
-    authRoutes,
-    ...basicRoutes
-  ]
+  routes: [mainRoutes, authRoutes, ...basicRoutes]
+})
+
+const loginName = 'login'
+
+router.beforeEach(async (to, from) => {
+  const { isAuthenticated } = useTokenStore()
+  const isLogin = await isAuthenticated()
+
+  console.group('router.beforeEach')
+  console.log('유효성 여부 :::>', isLogin)
+  console.log('to', to)
+  console.log('from', from)
+  console.groupEnd()
+
+  if (isLogin) {
+    if (to.name === loginName) {
+      return { name: 'home' }
+    }
+  } else {
+    if (to.name !== loginName) {
+      return { name: loginName }
+    }
+  }
 })
 
 export default router

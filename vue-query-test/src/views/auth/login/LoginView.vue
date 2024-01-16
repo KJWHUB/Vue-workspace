@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 
@@ -9,6 +10,7 @@ import { setRefreshToken, removeRefreshToken } from '@/utils/cookie/index'
 
 import { useTokenStore } from '@/stores/auth/token'
 
+const router = useRouter()
 const tokenStore = useTokenStore()
 
 console.log('login AuthToken 1', tokenStore.accessToken)
@@ -26,10 +28,9 @@ const loginMutation = useMutation({
     // 리프레쉬토큰 쿠키에 저장
     setRefreshToken(data.refreshToken)
     // 액세스토큰 저장
-    tokenStore.accessToken.setToken(data.accessToken)
+    tokenStore.setAccessToken(data.accessToken)
     // 저장후 라우터 이동
-
-    console.log('login AuthToken 2', tokenStore.accessToken)
+    router.push({ name: 'home' })
   },
   onError: (error) => {
     removeRefreshToken()
@@ -84,7 +85,9 @@ const submit = async () => {
       <el-form-item label="ID" prop="id">
         <el-input v-model="formData.id" placeholder="문자열을 입력하세요" />
       </el-form-item>
-      <el-button type="primary" @click="submit">Login</el-button>
+      <el-button type="primary" @click="submit" :loading="loginMutation.isPending.value"
+        >Login</el-button
+      >
     </el-form>
   </div>
 </template>
