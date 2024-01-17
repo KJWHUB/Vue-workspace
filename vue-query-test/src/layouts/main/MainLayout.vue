@@ -10,7 +10,7 @@ import SideBar from './components/SideBar.vue'
         <DefaultHeader />
       </el-header>
       <el-container>
-        <el-aside :width="200">
+        <el-aside>
           <SideBar />
         </el-aside>
         <el-main style="border: 3px solid yellow">
