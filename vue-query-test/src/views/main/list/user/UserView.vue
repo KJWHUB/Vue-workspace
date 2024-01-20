@@ -6,19 +6,6 @@ const { data, error } = useQuery({
   queryKey: [QUERY_KEY],
   queryFn: getTest
 })
-
-// const data = ref([])
-// const dataSet = async () => {
-//   try {
-//     const res = await getTest()
-//     data.value = res
-//   } catch (error) {
-//     console.log('error go', error)
-//   }
-// }
-// console.log('er', error)
-
-// const {data} = useTestQuery()
 </script>
 
 <template>
@@ -26,7 +13,19 @@ const { data, error } = useQuery({
     <h1>User</h1>
     <p>{{ error }}</p>
     <p>{{ JSON.stringify(data) }}</p>
+    <h2>스타일 태그에 module 옵션이 있어야만 $style 에 접근 가능</h2>
+    <p>{{ JSON.stringify($style) }}</p>
   </div>
 </template>
 
-<style scoped></style>
+<style module scoped>
+.add {
+  content: '++++++++';
+  color: red;
+  font-size: large;
+}
+
+:export {
+  open: 1;
+}
+</style>
