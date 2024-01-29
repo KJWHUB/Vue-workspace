@@ -109,6 +109,23 @@ const mainRoutes: RouteRecordRaw = {
           }
         }
       ]
+    },
+    {
+      path: 'default-route-test',
+      name: 'defaultRouteTest',
+      meta: {
+        sidebar: {
+          index: 'M700',
+          title: '디폴트 라우트 테스트',
+          to: { name: 'defaultRouteTest' }
+        }
+      },
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/main/drt/DefaultRouteTest.vue')
+        }
+      ]
     }
   ]
 }
