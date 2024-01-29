@@ -30,6 +30,8 @@ const vifTestFn = () => {
         <h2 :class="[$style['binding-ref-color']]">test cococo</h2>
         <h2 :class="[$style['binding-objcet-color']]">test cococo</h2>
         {{ console.log('option::>', $options) }}
+
+        <p :style="{ transform: $style ? 'rotate' : 'revert' }">style color</p>
       </div>
     </template>
   </div>
