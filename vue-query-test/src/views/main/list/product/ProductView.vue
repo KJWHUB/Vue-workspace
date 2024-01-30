@@ -32,6 +32,7 @@ const vifTestFn = () => {
         {{ console.log('option::>', $options) }}
 
         <p :style="{ transform: $style ? 'rotate' : 'revert' }">style color</p>
+        <p :style="[{ transition: 'all 1s' }, { transform: 'unset' }]">style color</p>
       </div>
     </template>
   </div>
