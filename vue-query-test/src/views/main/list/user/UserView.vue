@@ -6,6 +6,10 @@ const { data, error } = useQuery({
   queryKey: [QUERY_KEY],
   queryFn: getTest
 })
+
+// 동적 임포트
+const dymicImport = import('../product/ProductView.vue')
+console.log('dymicImport:', dymicImport)
 </script>
 
 <template>
