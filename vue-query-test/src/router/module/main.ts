@@ -126,6 +126,18 @@ const mainRoutes: RouteRecordRaw = {
           component: () => import('@/views/main/drt/DefaultRouteTest.vue')
         }
       ]
+    },
+    {
+      path: 'object-vfor',
+      name: 'object-vfor',
+      meta: {
+        sidebar: {
+          index: 'M800',
+          title: '오브젝트 v-for 테스트',
+          to: { name: 'object-vfor' }
+        }
+      },
+      component: () => import('@/views/main/ovf/ObjectVFor.vue')
     }
   ]
 }
