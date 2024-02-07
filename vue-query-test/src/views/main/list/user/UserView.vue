@@ -20,6 +20,7 @@ console.log('dymicImport:', dymicImport)
     <h2>스타일 태그에 module 옵션이 있어야만 $style 에 접근 가능</h2>
     <p>{{ JSON.stringify($style) }}</p>
     <article class="add">add</article>
+    <input type="file" />
   </div>
 </template>
 
