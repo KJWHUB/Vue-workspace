@@ -21,6 +21,7 @@ console.log('dymicImport:', dymicImport)
     <p>{{ JSON.stringify($style) }}</p>
     <article class="add">add</article>
     <input type="file" />
+    <input type="text" name="" id="" />
   </div>
 </template>
 
