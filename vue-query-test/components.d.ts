@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AttrsTestComponent: typeof import('./src/components/AttrsTestComponent.vue')['default']
     CustomInput: typeof import('./src/components/FormItem/CustomInput.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']

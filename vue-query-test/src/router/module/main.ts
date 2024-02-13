@@ -138,6 +138,18 @@ const mainRoutes: RouteRecordRaw = {
         }
       },
       component: () => import('@/views/main/ovf/ObjectVFor.vue')
+    },
+    {
+      path: 'component-attrs',
+      name: 'component-attrs',
+      meta: {
+        sidebar: {
+          index: 'M900',
+          title: '컴포넌트 속성 테스트',
+          to: { name: 'component-attrs' }
+        }
+      },
+      component: () => import('@/views/main/ca/ComponentAttrTestView.vue')
     }
   ]
 }
