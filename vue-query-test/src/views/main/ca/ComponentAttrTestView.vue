@@ -19,6 +19,7 @@ const inputValue = ref()
     <AttrsTestComponent style="background-color: blanchedalmond" text="aaaaaa" @click="changeF" />
 
     <hr style="margin: 20px" />
+    <small>inputValue: {{ inputValue }}</small>
 
     <BasicInput v-model="inputValue">
       <template #prepend>
