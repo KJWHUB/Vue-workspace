@@ -29,6 +29,8 @@ const inputValue = ref()
         <span>append</span>
       </template>
     </BasicInput>
+
+    {{ () => 11 }}
   </div>
 </template>
 
