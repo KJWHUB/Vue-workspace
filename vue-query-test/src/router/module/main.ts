@@ -150,6 +150,18 @@ const mainRoutes: RouteRecordRaw = {
         }
       },
       component: () => import('@/views/main/ca/ComponentAttrTestView.vue')
+    },
+    {
+      path: 'test',
+      name: 'allTest',
+      meta: {
+        sidebar: {
+          index: 'M1000',
+          title: 'ALL 테스트',
+          to: { name: 'allTest' }
+        }
+      },
+      component: () => import('@/views/main/comtest/AttrComponentTestView.vue')
     }
   ]
 }
