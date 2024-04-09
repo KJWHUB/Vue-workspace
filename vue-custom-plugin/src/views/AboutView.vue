@@ -1,6 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+
+    <div>
+      <p>{{ 1 }}</p>
+      <p>{{ $translate('greetings.hello') }}</p>
+      <p>{{ $translate('greetings') }}</p>
+    </div>
   </div>
 </template>
 
