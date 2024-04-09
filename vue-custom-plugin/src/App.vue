@@ -18,6 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+  <CustomModal />
 </template>
 
 <style scoped>
